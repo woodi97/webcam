@@ -9,11 +9,6 @@ export type NavRouterType = {
 export const navRouter: NavRouterType[] = [
   {
     path: '/',
-    name: 'Home',
-    icon: 'house',
-  },
-  {
-    path: '/camera',
     name: 'Camera',
     icon: 'camera',
   },
@@ -21,11 +16,6 @@ export const navRouter: NavRouterType[] = [
     path: '/posts',
     name: 'write',
     icon: 'plusCircle',
-  },
-  {
-    path: '/album',
-    name: 'Album',
-    icon: 'album',
   },
   {
     path: '/profile',

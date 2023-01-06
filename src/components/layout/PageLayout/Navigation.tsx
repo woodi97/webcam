@@ -1,10 +1,10 @@
 import { IconButton } from '@/components/common';
-import React, { FC } from 'react';
+import React, { FunctionComponent } from 'react';
 import cx from 'classnames';
 import { navRouter } from '@/core/config/navRouter';
 import { Link } from 'react-router-dom';
 
-const Navigation: FC<{
+const Navigation: FunctionComponent<{
   transparent?: boolean;
   className?: string;
 }> = ({ className, transparent = false }) => {

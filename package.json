@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "prepare": "npx husky install",
-    "dev": "vite --host",
-    "dev:secure": "vite --https --host",
+    "dev": "vite --host --port 3000",
+    "dev:secure": "vite --https --host --port 3000",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint",
@@ -22,14 +22,17 @@
     ]
   },
   "dependencies": {
+    "@types/p5": "^1.4.3",
     "@vitejs/plugin-react": "^3.0.1",
     "autoprefixer": "^10.4.13",
     "axios": "^1.2.2",
     "classnames": "^2.3.2",
     "framer-motion": "^8.2.0",
+    "html-to-image": "^1.11.4",
     "immer": "^9.0.17",
     "js-cookie": "^3.0.1",
     "lodash-es": "^4.17.21",
+    "p5": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",

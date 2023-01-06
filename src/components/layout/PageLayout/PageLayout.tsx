@@ -2,16 +2,14 @@ import React, { FC, useRef } from 'react';
 import useWindowResize from '@/hooks/useWindowResize';
 
 import cx from 'classnames';
-import { motion } from 'framer-motion';
-import { pageVars } from '@/animations/page';
 
-import Header from './PageLayout/Header';
+import Header from './Header';
+import Navigation from './Navigation';
 
 const PageLayout: FC<{
   children: React.ReactNode;
   fullWidth?: boolean;
   fixedHeight?: boolean;
-  disableTransition?: boolean;
   headerFixed?: boolean;
   headerTransparent?: boolean;
   headerBackgroundColor?: string;
@@ -20,13 +18,11 @@ const PageLayout: FC<{
   children,
   fullWidth = false,
   fixedHeight = false,
-  disableTransition = false,
-  headerFixed = false,
   headerTransparent = false,
   headerBackgroundColor,
   headerContent = (
     <h2 className="uppercase text-center w-full">
-      {import.meta.env.APP_TITLE}
+      {import.meta.env.VITE_APP_TITLE}
     </h2>
   ),
 }) => {
@@ -41,24 +37,11 @@ const PageLayout: FC<{
     }
   }, 0);
 
-  // do not remove pt-gb-header pb-bt-nav on motion.main
-  // it is for showing content on the top of bottom nav
-  // it should be pb-0 on desktop size because bottom nav will not be shown
   return (
-    <motion.div
-      className="relative h-full"
-      variants={disableTransition ? {} : pageVars}
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      transition={{ type: 'linear' }}
-    >
-      <Header
-        fixed={headerFixed}
-        transparent={headerTransparent}
-        className={headerBackgroundColor}
-        content={headerContent}
-      />
+    <div className="relative h-full overflow-hidden w-full bg-primary-500 max-w-mobile-app m-center">
+      <Header transparent={headerTransparent} className={headerBackgroundColor}>
+        {headerContent}
+      </Header>
       <main
         ref={mainRef}
         className={cx(
@@ -69,7 +52,8 @@ const PageLayout: FC<{
       >
         {children}
       </main>
-    </motion.div>
+      <Navigation />
+    </div>
   );
 };
 

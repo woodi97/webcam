@@ -1,19 +1,17 @@
-import React, { FC } from 'react';
+import React, { FunctionComponent } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 
 type Props = {
   className?: string;
-  fixed?: boolean;
   transparent?: boolean;
-  content: React.ReactNode;
+  children?: React.ReactNode;
 };
 
-const Header: FC<Props> = ({
+const Header: FunctionComponent<Props> = ({
   className,
-  fixed = false,
   transparent = false,
-  content,
+  children,
 }) => {
   return (
     <header className="relative">
@@ -31,7 +29,7 @@ const Header: FC<Props> = ({
           className,
         )}
       >
-        {content}
+        {children}
       </motion.div>
     </header>
   );
